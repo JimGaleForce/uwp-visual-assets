@@ -52,5 +52,22 @@ namespace VisualAssetsApp
 
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
+
+        private void GlyphBadgeNotification_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count < 1 || !(e.AddedItems[0] is TextBlock))
+            {
+                return;
+            }
+
+            string xmlContent = "<badge version='1' value='"+ ((TextBlock)e.AddedItems[0]).Text + "'/>";
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(xmlContent);
+
+            BadgeNotification notification = new BadgeNotification(xmlDoc);
+
+            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Update(notification);
+        }
     }
 }

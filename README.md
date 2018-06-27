@@ -68,6 +68,11 @@ The icon on the left has been shrunk to 16x16, leaving a border around it. The c
 
 ## Notifications
 
+### Badge glyph notifications
+
+Badges can contain an integer (1-99+), or any of these values: none, activity, alert, alarm, available, away, busy, newMessage, paused, playing, unavailable, error, attention. Using zero (0) is the same as none and clears the badge.
+[Docs reference](https://docs.microsoft.com/en-us/uwp/schemas/tiles/badgeschema/element-badge)
+
 ### Toast notifications
 
 Toast notifications use the **Square 44x44 logo**.
